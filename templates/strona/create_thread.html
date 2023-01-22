@@ -1,0 +1,15 @@
+{% extends 'strona/main.html' %}
+{% load static %}
+{% block content %}
+
+<a href="{% url 'chat' %}">Wróć do twoich czatów</a>
+<h3>Zacznij konwersację!<h3>
+    <form method="POST">
+    {% csrf_token %}
+    <p>Wpisz nazwę użyutkownika do którego chcesz napisać</p>
+        {{form.username}}
+        <button type="submit">Continue</button>
+    </form>
+
+
+{% endblock %}

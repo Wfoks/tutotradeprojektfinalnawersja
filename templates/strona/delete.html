@@ -1,0 +1,19 @@
+{% extends 'strona/main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/ogloszenie.css' %}">
+<h1 style="font-size:35px;">Jesteś pewny, że chcesz usunąć to ogłoszenie "{{item}}"?</h1>
+
+<div class="foremka">
+    <form action="{% url 'delete_order' item.id %}" method="POST">
+
+        {% csrf_token %}
+        <a href="{% url 'użytkownik' request.user.pk %}"><button class="ucz">Nie.</button></a>
+
+        <button type="submit" class="ucz">Tak, chce usunąć to ogłoszenie</button>
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'strona/main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/ogloszenie.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/css/ogloszenie.css' %}">
+<h1>KREATOR OGŁOSZENIA</h1>
+<div class="forma">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="label">{{form.przedmiot.label}}</div>
+        <div class="input">{{form.przedmiot}}</div>
+        <div class="label">{{form.zakres_od.label}}</div>
+        <div class="input">{{form.zakres_od}}</div>
+        <div class="label">{{form.zakres_do.label}}</div>
+        <div class="input">{{form.zakres_do}}</div>
+
+        <button class="ucz" type="submit" name="Submit" style="margin-left: 50px;">Prześlij ogłoszenie</button>
+        <a href="{% url 'nauczajinnych' %}"><p style="text-align: center;text-decoration: none;color: #222;">Powrót do strony głównej</p></a>
+    </form>
+</div>
+{% endblock %}

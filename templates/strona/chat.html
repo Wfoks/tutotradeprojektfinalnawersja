@@ -1,0 +1,21 @@
+{% extends 'strona/main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/chat.css' %}">
+    <div style="display: flex;align-items: center;justify-content: center;margin-top: 70px;">
+        <form method="GET" action="{% url 'create-thread' %}">
+            <button class="ucz" type="submit">Zacznij nową konwersację</button>
+        </form>
+    </div>  
+    
+        <h5 style="margin-top: 30px ;">Twoje czaty</h5>
+        <div style="overflow: hidden; overflow-y: scroll;">
+            {% for thread in threads.all %}
+                <div class="foremka">
+                        <a class="stretched-link" href="{% url 'thread' thread.pk %}"><div class="czatbox" style="width: 400px;height: 100px;border: 2px solid #222; margin: 10px;transition: 0.3s;background: transparent;"><h5 style="color: #222;margin: 0;margin-top: 25px;">{{ thread.user }} - {{ thread.receiver }}</h5></div></a>
+
+                </div>
+            {% endfor %}
+        </div>
+
+{% endblock %}

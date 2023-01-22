@@ -1,0 +1,67 @@
+{% extends 'strona/main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/użytkownik.css' %}">
+    <div id="user">
+        <div><img src="{% static 'images/profile_pictures/twojekonto-ikona_czarna.png' %}" class="profilowe"/></div>
+        <div class="nick">{{użytkownik}}</div>
+        <div class="info">Edytuj konto</div>
+        <div class="info">Informacje o użytkowniku
+        </div>
+        <div class="info">Twoje ogłoszenia pobierania korepetycji:
+            <div class="ogloszenia">
+                <table class="content-table">
+                    <tbody>
+                        {% for ogloszenie in ogloszenia %}
+                            <tr>
+                                <td class="row" style="border-left:2px solid var(--czarny);">{{ogloszenie.author}}</td>
+                                <td class="row">{{ogloszenie.zakres_materialu}}</td>
+                                <td class="row">{{ogloszenie.przedmiot}}</td>
+                                <td class="row">{{ogloszenie.zagadnienie}}</td>
+                                {% if ogloszenie.author.pk == request.user.pk %}
+                                    <td class="row"><a href="{% url 'delete_order' ogloszenie.id %}"><button class="ucz">Usuń ogłoszenie</button></a></td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="info">Twoje ogłoszenia nauczania:
+            <div class="ogloszenia">
+                <table class="content-table">
+                    <tbody>
+                        {% for nogloszenie in nogloszenia %}
+                        <tr>
+                            <td class="row" style="border-left:2px solid var(--czarny);">{{nogloszenie.author}}</td>
+                            <td class="row">{{nogloszenie.zakres_od}}</td>
+                            <td class="row">{{nogloszenie.zakres_do}}</td>
+                            <td class="row">{{nogloszenie.przedmiot}}</td>
+                            <td class="row"><a href="{% url 'delete_order' ogloszenie.id %}"><button class="delete">Usuń ogłoszenie</button></a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="stats">
+        <div class="stats">
+            Beneficjenci pomocy
+            {{użytkownik}}
+            <div class="liczby">0</div>
+        </div>
+        <div class="stats">
+            Tyle osób pomogło {{użytkownik}} 
+            <div class="liczby1">0</div>
+        </div>
+        <div class="stats">
+            TutoTokeny użytkownika {{użytkownik}}
+            <div class="liczby">0</div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

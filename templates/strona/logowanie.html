@@ -1,0 +1,27 @@
+{% extends 'strona/main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/ogloszenie.css' %}">
+
+
+
+    <h1>ZALOGUJ SIĘ</h1>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert dismissible fade show" role="alert" style="color:#222;font-size: 20px;text-align: center;margin-bottom: 20px;">
+    {{ message }}
+    </div>
+    {% endfor %}
+    <div class="forma">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="label">Nick</div>
+            <div class="input"><input type="text" name="username"></div>
+            <div class="label">Hasło</div>
+            <div class="input"><input type="password" name="password"></div>
+
+            <button class="ucz" type="submit" name="Submit" style="margin-left: 60px;">Zarejestruj się</button>
+            <a href="{% url 'stronaglowna' %}"><p style="text-align: center;text-decoration: none;color: #222;font-size: 20px;">Nie masz konta? Zarejestruj się.</p></a>
+        </form>
+    </div>
+
+{% endblock %}

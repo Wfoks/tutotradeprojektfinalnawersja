@@ -1,0 +1,194 @@
+:root {
+    --czarny: #222;
+    --tlo:#F4ECF4;
+    --fioletowy:#b878ff;
+    --bialy:#F4ECF4;
+    }
+.pool{
+    width: 900px;
+    height: 564px;
+    border: 3px solid var(--czarny);
+    margin: auto;
+    border-radius:20px ;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-color: var(--fioletowy);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    table-layout: fixed;
+}
+.pool::-webkit-scrollbar{
+    width: 15px;
+}
+.pool::-webkit-scrollbar-track{
+    background: lavender;
+    border-radius: 20px;
+    margin-block:7px;
+}
+.pool::-webkit-scrollbar-thumb{
+    background: var(--fioletowy);
+    border-radius: 50px;
+}
+.pool::-webkit-scrollbar-thumb:hover{
+    background: var(--tlo);
+}
+.message{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #b878ff;
+    float: right;
+    margin: 2px;
+    margin-left: 525px;
+    font-size: 20px;
+}
+.message2{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    float: left;
+    margin: 2px;
+    margin-right: 525px;
+    font-size: 20px;
+}
+h5{ 
+    text-align: center;
+    font-size: 35px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+.ucz{
+    padding: 14px 50px;
+    background-color: var(--bialy);
+    border-radius: 50px;
+    margin: 10px;
+    margin-bottom: 11px;
+    background: transparent;
+    transition: 0.3s;
+}
+.ucz:hover{
+    background-color: var(--fioletowy);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+.foremka {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input{
+    align-items: center;
+    width: 300px;
+    height: 40px;
+    border: 2px solid var(--czarny);
+    border-radius: 20px;
+    font-size:20px;
+    background-color: var(--tlo);
+    margin: 10px;
+}
+.czatbox{
+    width: 400px;
+    height: 100px;
+    background-color: var(--bialy);
+    border: 2px solid #222;
+    margin: 10px;    
+    background: transparent;
+    transition: 0.3s;
+}
+.czatbox:hover{
+    background-color: var(--fioletowy);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+@media screen and (max-width:1000px) {
+    .pool{
+        width: 300px;
+        height: 364px;
+        border: 3px solid var(--czarny);
+        margin: auto;
+        border-radius:20px ;
+        overflow: hidden;
+        overflow-y: scroll;
+        scrollbar-color: var(--fioletowy);
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        table-layout: fixed;
+    }
+    .pool::-webkit-scrollbar{
+        width: 15px;
+    }
+    .pool::-webkit-scrollbar-track{
+        background: lavender;
+        border-radius: 20px;
+        margin-block:7px;
+    }
+    .pool::-webkit-scrollbar-thumb{
+        background: var(--fioletowy);
+        border-radius: 50px;
+    }
+    .pool::-webkit-scrollbar-thumb:hover{
+        background: var(--tlo);
+    }
+    .message{
+        padding: 10px;
+        border-radius: 20px;
+        background-color: #b878ff;
+        float: right;
+        margin: 2px;
+        margin-left: 100px;
+        font-size: 20px;
+    }
+    .message2{
+        padding: 10px;
+        border-radius: 20px;
+        background-color: #FFFFFF;
+        float: left;
+        margin: 2px;
+        margin-right: 125px;
+        font-size: 20px;
+    }
+    h5{ 
+        text-align: center;
+        font-size: 35px;
+        margin-top: 60px;
+        margin-bottom: 10px;
+    }
+    .ucz{
+        padding: 4px 20px;
+        background-color: var(--bialy);
+        border-radius: 50px;
+        margin: 10px;
+        margin-bottom: 11px;
+        margin-left: 120px;
+        background: transparent;
+        transition: 0.3s;
+    }
+    .ucz:hover{
+        background-color: var(--fioletowy);
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    .foremka {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    input{
+        align-items: center;
+        width: 280px;
+        height: 30px;
+        border: 2px solid var(--czarny);
+        border-radius: 20px;
+        font-size:20px;
+        background-color: var(--tlo);
+        margin: 10px;
+        margin-left: 50px;
+    }
+    .czatbox{
+        width: 400px;
+        height: 100px;
+        background-color: var(--bialy);
+        border: 2px solid #222;
+        margin: 10px;    
+        background: transparent;
+        transition: 0.3s;
+    }
+    .czatbox:hover{
+        background-color: var(--fioletowy);
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+}

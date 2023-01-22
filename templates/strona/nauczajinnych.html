@@ -1,0 +1,134 @@
+{% extends 'strona/main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/stronaglowna.css' %}">
+
+        <main>
+            <button class="filtrowanie"><div class="filtry">
+                <p>F</p>
+                <p></p>
+                <p>I</p>
+                <p></p>
+                <p>L</p>
+                <p></p>
+                <p>T</p>
+                <p></p>
+                <p>R</p>
+                <p></p>
+                <p>Y</p>
+            </div></button>
+            <button class="sponsorzy"><div class="filtry">
+                <p>S</p>
+                <p>P</p>
+                <p>O</p>
+                <p>N</p>
+                <p>S</p>
+                <p>O</p>
+                <p>R</p>
+                <p>Z</p>
+                <p>Y</p>
+            </div></button>
+            <aside id="aside1">
+                <div class="aside">Filtrowanie</div>
+                <form method="get" class="foremka">
+                    {{myfilter.form.as_p}}
+                    <button class="filter">Wyszukaj</button>
+                </form>
+            </aside>
+            <div id="content">
+                <div id="buttons">
+                    <a href="{% url 'stronaglowna' %}"><button class="naucz">NAUCZAJ INNYCH</button></a>
+                    <a href="{% url 'nauczajinnych' %}"><button class="ucz" style="background-color: #222;color: #F4ECF4;">UCZ SIĘ</button></a>
+                </div>
+                <div id="korki">
+                    <table class="content-table">
+                        <thead style="border-bottom: 2px solid #222">
+                            <tr>
+                                <th class="mainrow">Użytkownik</th>
+                                <th class="mainrow">Zakres od</th>
+                                <th class="mainrow">Zakres do</th>
+                                <th class="mainrow">Przedmiot</th>
+                                <th class="mainrow">Akceptowanie ogłoszenia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for nogloszenie in nogloszenia %}
+                                <tr>
+                                    <td class="row"><a href="{% url 'użytkownik' nogloszenie.author.pk %}" style="text-decoration: none;color:#222;">{{nogloszenie.author}}</a></td>
+                                    <td class="row">{{nogloszenie.zakres_od}}</td>
+                                    <td class="row">{{nogloszenie.zakres_do}}</td>
+                                    <td class="row">{{nogloszenie.przedmiot}}</td>
+                                    <td class="row"><a href="{% url 'thread' nogloszenie.author.pk %}"><button class="zglos">Zgłoś się</button></a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                    {% if user.is_authenticated %}
+                    <div id="stworzogloszenie">
+                    <a href="{% url 'nauczaj_tworzenie_ogloszenia' %}"><button class="naucz" style="float:right;">Utwórz własne ogłoszenie</button></a>
+                    </div>
+                    {% endif %}
+            </div>
+            <aside id="aside2">
+            <div class="aside">Sponsorzy</div>
+            </aside>
+
+
+            <script type="text/javascript">
+                let url = `ws://${window.location.host}/ws/socket-server/`
+
+                const chatSocket = new WebSocket(url)
+
+                chatSocket.onmessage = function(e){
+                    let data = JSON.parse(e.data)
+                    console.log('Data: ', data)
+
+                    if(data.type === 'chat'){
+                        let messages = document.getElementById('messages')
+
+                        messages.insertAdjacentHTML('beforeend', `<div>
+                                            <p>${data.message}</p>
+                                        </div>`)
+                    }
+                }
+
+                let form = document.getElementById('form')
+                form.addEventListener('submit', (e)=> {
+                    e.preventDefault()
+                    let message = e.target.message.value
+                    chatSocket.send(JSON.stringify({
+                        'message':message
+                    }))
+                    form.reset()
+                })
+
+            </script>            
+            <script>
+                const toggleBtn = document.querySelector('.filtrowanie');
+                const divList = document.querySelector('#aside1')
+
+                toggleBtn.addEventListener('click', () => {
+                    if (divList.style.display === 'none') {
+                        divList.style.display = 'block'
+                        toggleBtn.style.top = '60%'
+                    } else {
+                        divList.style.display = 'none'
+                        toggleBtn.style.top = '20%'
+                    }
+                });
+                const toggleBtn2 = document.querySelector('.sponsorzy');
+                const divList2 = document.querySelector('#aside2')
+
+                toggleBtn2.addEventListener('click', () => {
+                    if (divList2.style.display === 'none') {
+                        divList2.style.display = 'block'
+                        toggleBtn2.style.top = '60%'
+                    } else {
+                        divList2.style.display = 'none'
+                        toggleBtn2.style.top = '20%'
+                    }
+                });
+            </script>
+        </main>
+{% endblock %}

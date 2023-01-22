@@ -1,0 +1,266 @@
+:root {
+    --czarny: #222;
+    --tlo:#EAC7F4;
+    --fioletowy:#b878ff;
+    --bialy:#F4ECF4;
+    }
+    html ,body{
+        background-color:lavender;
+        margin:0 !important;
+        height: 100%;
+        font-family: 'KoHo', sans-serif;
+    }
+    #container{
+        min-height:100%;
+		position:relative;
+    }
+    nav{
+      width: 100%;
+      height: 80px;
+      background-color: var(--czarny);  
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+    }
+    .bar1{
+        width: 200px;
+        height: 45px;
+        margin: 10px ;
+        background-color: var(--czarny);
+        font-size: 20px;
+        text-align: left;
+        padding-top: 15px;
+        border-right:1px solid var(--bialy) ;
+        color: var(--bialy);
+        text-decoration: none;
+    }
+    .bar2{
+        width: 200px;
+        height: 45px;
+        margin: 10px ;
+        background-color: var(--czarny);
+        font-size: 20px;
+        text-align: right;
+        padding-top: 15px;
+        border-left:1px solid var(--bialy) ;
+        color: var(--bialy);
+        text-decoration: none;
+    }
+    footer{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        background-color: var(--czarny);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        float: left;
+    }
+    a {
+        text-decoration: none;
+    }
+    ol {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        color: var(--bialy);
+        text-align: center;
+    } 
+    ol a{
+        text-decoration: none;
+        display: block;
+        color:var(--bialy)
+    }
+    ol > li{
+        float: left;
+        width: 360px;
+        height: 50px;
+        padding-bottom:5px ;
+        padding-top: 30px;
+        border-right:1px solid var(--bialy) ;
+        color: var(--bialy);
+    }
+    ol > li:hover > ul{
+        display: block;
+        background-color: gray;
+    }
+    ol > li > ul {
+        list-style-type:none ;
+        padding: 0;
+        margin: 0;
+        height: 40px;
+        display: none;
+    }
+    ol > li > ul > a{
+        background-color: var(--czarny);
+        position: relative;
+        z-index: 100;
+        padding: 20px;
+        border-top: 1px solid var(--bialy);
+        transition: 0.5;
+    }
+    ol > li > ul > a:hover >li{
+        color:var(--bialy)
+    }
+    ol > li > ul > a:hover {
+        background-color: gray;
+    }
+    .logo{
+        width: 440px;
+        height: 190px;
+        margin: 0;
+        padding: 0;
+        border-bottom-left-radius: 170px;
+        border-bottom-right-radius: 170px;
+        border: 2px solid var(--czarny);
+    }
+    .icon{
+        margin: 0;
+        margin-bottom: 25px;
+    }
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        
+    }
+    .c1{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly; 
+        text-align: center;
+        margin: 10px;
+    }
+    .social {
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .burger{
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: none;
+    }
+    .line{
+        width: 3em;
+        height: 0.3em;
+        background-color: #F4ECF4;
+        margin: 0.6em;
+        transition: 0.3s ease-in-out;
+    }
+    .footicon{
+        width: 20px;
+        height: 20px;
+    }
+    .navicon{
+        width: 64px;
+        height: 64px;
+    }
+    .zzt{
+        height: 25px;
+        width: auto;
+    }
+
+@media screen and (max-width:1000px) {
+   .burger{
+    display: none;
+    transition: 0.3 ease-in-out;
+    margin-right: 0px;
+   } 
+    .logo{
+        width: 140px;
+        height: 90px;
+        margin: 0;
+        padding: 0;
+        border-bottom-left-radius: 65px;
+        border-bottom-right-radius: 65px;
+        border: 2px solid var(--czarny);
+    }
+    footer{
+        position: absolute;
+        bottom: 0;
+        font-size: 0px;
+        width: 100%;
+        height: 140px;
+        background-color: var(--czarny);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        float: left;
+    }
+    .footicon{
+        width: 40px;
+        height: 40px;
+    }
+    .bar1{
+        width: 70px;
+        height: 45px;
+        margin: 10px ;
+        background-color: var(--czarny);
+        font-size: 0px;
+        text-align: left;
+        padding-top: 15px;
+        border-right:1px solid var(--bialy) ;
+        color: var(--bialy);
+        text-decoration: none;
+    }
+    .bar2{
+        width: 70px;
+        height: 45px;
+        margin: 10px ;
+        background-color: var(--czarny);
+        font-size: 0px;
+        text-align: right;
+        padding-top: 15px;
+        border-left:1px solid var(--bialy) ;
+        color: var(--bialy);
+        text-decoration: none;
+    }
+    ol {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        font-size: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--bialy);
+        text-align: center;
+    }
+    .navicon{
+        width: 30px;
+        height:30px;
+    }
+    ol > li{
+        float: left;
+        width: 50px;
+        height: 50px;
+        padding-bottom:5px ;
+        padding-top: 30px;
+        border-right:1px solid var(--bialy) ;
+        color: var(--bialy);
+    }
+    nav{
+        width: 100%;
+        height: 50px;
+        background-color: var(--czarny);  
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+      }
+      .icon{
+        margin: 0;margin-bottom: 25px;
+      }
+      .zzt{
+        height: 30px;
+        width: auto;
+      }
+}
